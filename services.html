@@ -1,0 +1,659 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CultureArc | Services & Technologies</title>
+    <meta name="description" content="Explore CultureArc's extensive technology stack and comprehensive IT service offerings, including Cloud, Mobility, AI, and Big Data.">
+    
+    <!-- Structured Data and Open Graph Tags remain consistent with the overall site -->
+    <meta property="og:title" content="CultureArc - Services & Technologies">
+    <meta property="og:description" content="Deep expertise in .NET, Java, React, Cloud, IoT, AI, and Enterprise Solutions.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://www.culturearc.com/services.html">
+    <meta property="og:image" content="https://placehold.co/1200x630/D32F2F/ffffff?text=CultureArc_Services">
+
+    <style>
+        /* =========================================
+           CSS VARIABLES & RESET (Copied from previous files)
+           ========================================= */
+        :root {
+            /* Theme: Red, Black, White */
+            --primary-color: #D32F2F; /* The "Arc" Red */
+            --primary-dark: #b71c1c;  /* Darker Red for hover */
+            --accent-black: #000000;  /* The "Culture" Black */
+            
+            --text-dark: #1a1a1a;
+            --text-gray: #4b5563;
+            --text-light: #6b7280;
+            
+            --bg-body: #ffffff;
+            --bg-light: #f8f9fa;
+            --bg-dark: #111111;
+
+            --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+            --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+            --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.15), 0 4px 6px -2px rgba(0, 0, 0, 0.1);
+            
+            --radius: 4px; /* Sharper corners for a more corporate/bold feel */
+            --font-main: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+            --transition: all 0.3s ease;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: var(--font-main);
+            color: var(--text-dark);
+            background-color: var(--bg-body);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        img, svg {
+            vertical-align: middle;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .section-padding {
+            padding: 90px 0;
+        }
+
+        .text-center { text-align: center; }
+        .text-primary { color: var(--primary-color); }
+        .text-black { color: var(--accent-black); }
+
+        h1, h2, h3, h4 {
+            font-weight: 700;
+            line-height: 1.2;
+            margin-bottom: 1rem;
+            color: var(--accent-black);
+        }
+
+        h2 {
+            font-size: 2.5rem;
+            position: relative;
+            display: inline-block;
+        }
+        
+        /* Red underline for section headings */
+        h2::after {
+            content: '';
+            display: block;
+            width: 60px;
+            height: 4px;
+            background: var(--primary-color);
+            margin: 10px auto 0;
+        }
+        
+        .section-subtitle {
+            font-size: 1.15rem;
+            color: var(--text-gray);
+            max-width: 650px;
+            margin: 1.5rem auto 4rem auto;
+            text-align: center;
+        }
+        
+        /* Buttons */
+        .btn {
+            display: inline-block;
+            padding: 14px 28px;
+            border-radius: var(--radius);
+            font-weight: 600;
+            cursor: pointer;
+            transition: var(--transition);
+            border: 2px solid transparent;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            font-size: 0.9rem;
+        }
+
+        .btn-primary {
+            background-color: var(--primary-color);
+            color: white;
+            border-color: var(--primary-color);
+        }
+
+        .btn-primary:hover {
+            background-color: var(--primary-dark);
+            border-color: var(--primary-dark);
+            transform: translateY(-2px);
+        }
+        
+        /* =========================================
+           HEADER & NAVBAR 
+           ========================================= */
+        header {
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            background-color: white;
+            box-shadow: var(--shadow-sm);
+            transition: var(--transition);
+            border-bottom: 1px solid #eee;
+        }
+
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 90px;
+            transition: height 0.3s;
+        }
+
+        .brand-logo {
+            display: flex;
+            align-items: center;
+        }
+
+        .nav-menu {
+            display: flex;
+            gap: 30px;
+        }
+
+        .nav-link {
+            font-weight: 600;
+            color: var(--text-dark);
+            position: relative;
+            font-size: 0.95rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .nav-link:hover {
+            color: var(--primary-color);
+        }
+
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -4px;
+            left: 0;
+            background-color: var(--primary-color);
+            transition: width 0.3s;
+        }
+
+        .nav-link:hover::after, .nav-link.active::after {
+            width: 100%;
+        }
+        
+        .nav-link.active {
+            color: var(--primary-color);
+        }
+
+        .hamburger {
+            display: none;
+            cursor: pointer;
+            color: var(--accent-black);
+        }
+        
+        /* =========================================
+           PAGE SPECIFIC LAYOUTS
+           ========================================= */
+        
+        .hero-page {
+            background-color: var(--bg-light);
+            padding: 100px 0 60px;
+            text-align: center;
+            border-bottom: 3px solid var(--primary-color);
+        }
+        .hero-page h1 {
+            font-size: 3.5rem;
+            color: var(--primary-color);
+            margin-bottom: 10px;
+        }
+        .hero-page p {
+            font-size: 1.25rem;
+            color: var(--text-gray);
+        }
+        
+        /* Service Cards & Grids */
+        .service-group {
+            background-color: white;
+            padding: 40px;
+            border-radius: var(--radius);
+            box-shadow: var(--shadow-md);
+            margin-bottom: 40px;
+            border-left: 5px solid var(--primary-color);
+        }
+        
+        .tech-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            margin-top: 20px;
+        }
+        
+        .tech-tag {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 8px 15px;
+            border-radius: 9999px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            transition: background-color 0.3s;
+        }
+        
+        .tech-tag:hover {
+            background-color: var(--primary-dark);
+        }
+        
+        .service-stack-grid {
+             display: grid;
+             grid-template-columns: repeat(auto-fit, minmax(450px, 1fr));
+             gap: 40px;
+             margin-top: 60px;
+        }
+        
+        .service-area-card {
+            background: #ffffff;
+            padding: 40px;
+            border-radius: var(--radius);
+            box-shadow: var(--shadow-sm);
+            border: 1px solid #eee;
+            transition: border-color 0.3s;
+        }
+        
+        .service-area-card:hover {
+             border-color: var(--primary-color);
+        }
+        
+        .service-area-card h3 {
+             font-size: 1.6rem;
+             color: var(--primary-color);
+             margin-bottom: 15px;
+        }
+        
+        .service-area-card ul {
+             list-style: disc;
+             padding-left: 20px;
+             color: var(--text-gray);
+        }
+        .service-area-card li {
+             margin-bottom: 8px;
+        }
+
+        /* Footer (Copied from index.html) */
+        footer {
+            background-color: #000;
+            color: white;
+            padding: 80px 0 30px;
+            border-top: 5px solid var(--primary-color);
+        }
+
+        .footer h3 {
+            color: white;
+            font-size: 1.2rem;
+            margin-bottom: 25px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        
+        .footer-links a {
+            color: #999;
+            transition: color 0.3s;
+            display: inline-block;
+            margin-bottom: 8px;
+        }
+
+        .footer-links a:hover {
+            color: var(--primary-color);
+            padding-left: 5px;
+        }
+        
+        .social-icon {
+            display: inline-flex;
+            width: 40px;
+            height: 40px;
+            background: #222;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            color: white;
+            margin-right: 10px;
+            transition: 0.3s;
+        }
+        
+        .social-icon:hover {
+            background: var(--primary-color);
+        }
+        
+        .footer-grid { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 40px; margin-bottom: 40px; }
+
+
+        /* =========================================
+           RESPONSIVE
+           ========================================= */
+        @media (max-width: 992px) {
+            .service-stack-grid { grid-template-columns: 1fr; }
+            .footer-grid { grid-template-columns: 1fr 1fr; }
+        }
+
+        @media (max-width: 768px) {
+            .hamburger { display: block; }
+            .nav-menu {
+                position: fixed;
+                top: 90px;
+                left: -100%;
+                width: 100%;
+                height: calc(100vh - 90px);
+                background: white;
+                flex-direction: column;
+                align-items: center;
+                padding-top: 40px;
+                transition: left 0.3s;
+                border-top: 1px solid #eee;
+            }
+            .nav-menu.active { left: 0; }
+            h1 { font-size: 2.5rem; }
+        }
+
+        /* Animation Utility */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+        }
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+    </style>
+</head>
+<body>
+
+    <!-- ==================== HEADER ==================== -->
+    <header id="header">
+        <div class="container nav-container">
+            <!-- LOGO: Recreated with SVG to match requested Image (Culture Black, Arc Red, Stylized A) -->
+            <a href="index.html" class="brand-logo">
+                <svg width="180" height="40" viewBox="0 0 180 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <!-- 'Culture' in Black -->
+                    <text x="0" y="30" font-family="Arial, sans-serif" font-size="32" font-weight="400" fill="#000000">Culture</text>
+                    
+                    <!-- Stylized 'A' -->
+                    <g transform="translate(108, 0)">
+                        <!-- The A Legs -->
+                        <path d="M12 30 L22 4 L32 30" stroke="#D32F2F" stroke-width="3" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+                        <!-- The Orbit/Ring -->
+                        <ellipse cx="22" cy="20" rx="16" ry="4" stroke="#D32F2F" stroke-width="2" fill="none" transform="rotate(-5 22 20)"/>
+                    </g>
+                    
+                    <!-- 'rc' in Red -->
+                    <text x="142" y="30" font-family="Arial, sans-serif" font-size="32" font-weight="400" fill="#D32F2F">rc</text>
+                </svg>
+            </a>
+            
+            <nav>
+                <!-- Navigation links point to planned pages -->
+                <ul class="nav-menu" id="nav-menu">
+                    <li><a href="index.html" class="nav-link">Home</a></li>
+                    <li><a href="Aboutus.html" class="nav-link">About</a></li>
+                    <li><a href="services.html" class="nav-link active">Services</a></li>
+                    <li><a href="portfolio.html" class="nav-link">Portfolio</a></li>
+                    <li><a href="job.html" class="nav-link">Jobs</a></li>
+                    <li><a href="contact.html" class="nav-link">Contact</a></li>
+                    <li><a href="index.html" class="btn btn-primary">Hire Talent</a></li>
+                </ul>
+            </nav>
+            
+            <div class="hamburger" id="hamburger">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <line x1="3" y1="12" x2="21" y2="12"></line>
+                    <line x1="3" y1="6" x2="21" y2="6"></line>
+                    <line x1="3" y1="18" x2="21" y2="18"></line>
+                </svg>
+            </div>
+        </div>
+    </header>
+
+    <!-- ==================== PAGE HERO ==================== -->
+    <section class="hero-page">
+        <div class="container">
+            <h1 class="fade-in">Services & Technologies</h1>
+            <p class="fade-in">Leveraging a deep and diverse technology stack to deliver innovative solutions.</p>
+        </div>
+    </section>
+
+    <!-- ==================== TECHNOLOGY STACK OVERVIEW ==================== -->
+    <section id="tech-stack" class="section-padding">
+        <div class="container">
+            <div class="text-center fade-in">
+                <h2>Our Diverse Technology Stack</h2>
+                <p class="section-subtitle">We deploy the right tools for the job, covering legacy enterprise systems and next-generation innovation platforms.</p>
+            </div>
+            
+            <div class="service-group fade-in">
+                <h3 style="margin-bottom: 20px; color: var(--accent-black);">Web & Frontend Development</h3>
+                <div class="tech-list">
+                    <span class="tech-tag">.NET</span>
+                    <span class="tech-tag">Java</span>
+                    <span class="tech-tag">MEAN Stack</span>
+                    <span class="tech-tag">NodeJS</span>
+                    <span class="tech-tag">HTML 5</span>
+                    <span class="tech-tag">CSS 3</span>
+                    <span class="tech-tag">Python</span>
+                    <span class="tech-tag">React JS</span>
+                    <span class="tech-tag">Angular</span>
+                </div>
+            </div>
+            
+            <div class="service-group fade-in">
+                <h3 style="margin-bottom: 20px; color: var(--accent-black);">Cloud, Data, and Enterprise Solutions</h3>
+                <div class="tech-list">
+                    <span class="tech-tag">Amazon AWS</span>
+                    <span class="tech-tag">Azure</span>
+                    <span class="tech-tag">GCP</span>
+                    <span class="tech-tag">Big Data & Analytics</span>
+                    <span class="tech-tag">SAP</span>
+                    <span class="tech-tag">Enterprise Solutions</span>
+                    <span class="tech-tag">Business Intelligence</span>
+                    <span class="tech-tag">Software Testing</span>
+                </div>
+            </div>
+            
+            <div class="service-group fade-in">
+                <h3 style="margin-bottom: 20px; color: var(--accent-black);">Next-Gen Innovation</h3>
+                <div class="tech-list">
+                    <span class="tech-tag">IoT (Internet of Things)</span>
+                    <span class="tech-tag">AI (Artificial Intelligence)</span>
+                    <span class="tech-tag">Machine Learning</span>
+                    <span class="tech-tag">Mobility (Native & Hybrid)</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== SERVICE AREAS ==================== -->
+    <section id="service-areas" class="section-padding bg-light">
+        <div class="container">
+            <div class="text-center fade-in">
+                <h2>Our Comprehensive Service Areas</h2>
+                <p class="section-subtitle">We don't just provide technology; we deliver end-to-end consulting and solution implementation.</p>
+            </div>
+            
+            <div class="service-stack-grid">
+                
+                <div id="cloud" class="service-area-card fade-in">
+                    <h3>Cloud & Infrastructure</h3>
+                    <p style="margin-bottom: 15px;">Leverage scalable, secure, and cost-optimized cloud environments on major platforms.</p>
+                    <ul>
+                        <li>Cloud Migration and Strategy (AWS, Azure, GCP)</li>
+                        <li>DevOps Implementation and Automation</li>
+                        <li>Site Reliability Engineering (SRE)</li>
+                        <li>Managed Services and Cloud Security</li>
+                    </ul>
+                </div>
+
+                <div id="web" class="service-area-card fade-in">
+                    <h3>Software & Web Development</h3>
+                    <p style="margin-bottom: 15px;">Building robust, high-performance web applications and enterprise software.</p>
+                    <ul>
+                        <li>Full-Stack Development (.NET, Java, Python, NodeJS)</li>
+                        <li>Modern Frontend (React JS, Angular, HTML5, CSS3)</li>
+                        <li>Enterprise Resource Planning (SAP)</li>
+                        <li>Custom Software Product Engineering</li>
+                    </ul>
+                </div>
+
+                <div id="mobility" class="service-area-card fade-in">
+                    <h3>Mobility Solutions</h3>
+                    <p style="margin-bottom: 15px;">Designing engaging mobile experiences for consumer and enterprise applications.</p>
+                    <ul>
+                        <li>Native App Development (iOS, Android)</li>
+                        <li>Hybrid App Development (React Native, Ionic)</li>
+                        <li>Mobile Backend and API Integration</li>
+                        <li>Mobile Testing and QA</li>
+                    </ul>
+                </div>
+                
+                <div id="data" class="service-area-card fade-in">
+                    <h3>Data & Analytics</h3>
+                    <p style="margin-bottom: 15px;">Turning raw data into strategic insights using advanced BI and Big Data tools.</p>
+                    <ul>
+                        <li>Big Data Processing (Hadoop, Spark)</li>
+                        <li>Business Intelligence & Visualization (Tableau, Power BI)</li>
+                        <li>Data Warehousing and ETL</li>
+                        <li>Data Governance and Quality Management</li>
+                    </ul>
+                </div>
+                
+                <div id="aiml" class="service-area-card fade-in">
+                    <h3>AI, ML & IoT</h3>
+                    <p style="margin-bottom: 15px;">Implementing intelligent systems to automate processes and unlock predictive capabilities.</p>
+                    <ul>
+                        <li>Machine Learning Model Development</li>
+                        <li>AI-Powered Automation and Chatbots</li>
+                        <li>IoT Device Integration and Data Pipelines</li>
+                        <li>Computer Vision and Predictive Maintenance</li>
+                    </ul>
+                </div>
+                
+                <div id="testing" class="service-area-card fade-in">
+                    <h3>Quality Assurance (QA)</h3>
+                    <p style="margin-bottom: 15px;">Ensuring the highest standards of quality, performance, and security for all solutions.</p>
+                    <ul>
+                        <li>Functional & Non-Functional Testing</li>
+                        <li>Test Automation Strategy and Implementation</li>
+                        <li>Performance, Security, and Penetration Testing</li>
+                        <li>Agile and DevOps-integrated QA</li>
+                    </ul>
+                </div>
+
+            </div>
+            
+            <div class="text-center" style="margin-top: 60px;">
+                <a href="contact.html" class="btn btn-primary">Discuss Your Project Needs &rarr;</a>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- ==================== FOOTER ==================== -->
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div>
+                    <h3>CultureArc</h3>
+                    <p style="color: #999; margin-bottom: 25px; font-size: 0.95rem;">Innovative Technology solutions to manage business in the new era of digital economy. Creating high productive teams and work culture across the globe.</p>
+                </div>
+                
+                <div>
+                    <h3>Quick Links</h3>
+                    <ul class="footer-links">
+                        <li><a href="Aboutus.html">About Us</a></li>
+                        <li><a href="job.html">Careers</a></li>
+                        <li><a href="services.html">Services</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h3>Services</h3>
+                    <ul class="footer-links">
+                        <li><a href="services.html#cloud">Cloud Solutions</a></li>
+                        <li><a href="services.html#web">Web Development</a></li>
+                        <li><a href="services.html#mobility">Mobility</a></li>
+                        <li><a href="services.html#aiml">AI & IoT</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h3>Connect</h3>
+                    <div style="display: flex; margin-bottom: 20px;">
+                        <a href="#" class="social-icon">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path><rect x="2" y="9" width="4" height="12"></rect><circle cx="4" cy="4" r="2"></circle></svg>
+                        </a>
+                        <a href="#" class="social-icon">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path></svg>
+                        </a>
+                        <a href="#" class="social-icon">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"></path></svg>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            
+            <div style="border-top: 1px solid #222; padding-top: 20px; text-align: center; color: #666; font-size: 0.85rem;">
+                &copy; 2025 CultureArc. All Rights Reserved. | MSME: UDYAM-MH-26-0170565
+            </div>
+        </div>
+    </footer>
+
+    <!-- ==================== JAVASCRIPT ==================== -->
+    <script>
+        // --- DOM Elements ---
+        const navMenu = document.getElementById('nav-menu');
+        const hamburger = document.getElementById('hamburger');
+        const fadeElements = document.querySelectorAll('.fade-in');
+
+        // --- Init ---
+        document.addEventListener('DOMContentLoaded', () => {
+            setupIntersectionObserver();
+        });
+
+        // --- Navigation ---
+        hamburger.addEventListener('click', () => {
+            navMenu.classList.toggle('active');
+        });
+
+        // --- Intersection Observer for Animations ---
+        function setupIntersectionObserver() {
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                    }
+                });
+            }, { threshold: 0.1 });
+
+            fadeElements.forEach(el => observer.observe(el));
+        }
+    </script>
+</body>
+</html>

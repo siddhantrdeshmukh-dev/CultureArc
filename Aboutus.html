@@ -1,0 +1,680 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CultureArc | About Us</title>
+    <meta name="description" content="CultureArc Company Overview, Core Team, and Key Differentiators in IT Services and Business Consulting.">
+    
+    <!-- Structured Data and Open Graph Tags remain consistent with the overall site -->
+    <meta property="og:title" content="CultureArc - About Us">
+    <meta property="og:description" content="Learn about CultureArc's mission, key differentiators, and core team members.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://www.culturearc.com/about.html">
+    <meta property="og:image" content="https://placehold.co/1200x630/D32F2F/ffffff?text=CultureArc_About">
+
+    <style>
+        /* =========================================
+           CSS VARIABLES & RESET (Copied from index.html)
+           ========================================= */
+        :root {
+            /* Theme: Red, Black, White */
+            --primary-color: #D32F2F; /* The "Arc" Red */
+            --primary-dark: #b71c1c;  /* Darker Red for hover */
+            --accent-black: #000000;  /* The "Culture" Black */
+            
+            --text-dark: #1a1a1a;
+            --text-gray: #4b5563;
+            --text-light: #6b7280;
+            
+            --bg-body: #ffffff;
+            --bg-light: #f8f9fa;
+            --bg-dark: #111111;
+
+            --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+            --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+            --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.15), 0 4px 6px -2px rgba(0, 0, 0, 0.1);
+            
+            --radius: 4px; /* Sharper corners for a more corporate/bold feel */
+            --font-main: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+            --transition: all 0.3s ease;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: var(--font-main);
+            color: var(--text-dark);
+            background-color: var(--bg-body);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        img, svg {
+            vertical-align: middle;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .section-padding {
+            padding: 90px 0;
+        }
+
+        .text-center { text-align: center; }
+        .text-primary { color: var(--primary-color); }
+        .text-black { color: var(--accent-black); }
+
+        h1, h2, h3, h4 {
+            font-weight: 700;
+            line-height: 1.2;
+            margin-bottom: 1rem;
+            color: var(--accent-black);
+        }
+
+        h2 {
+            font-size: 2.5rem;
+            position: relative;
+            display: inline-block;
+        }
+        
+        /* Red underline for section headings */
+        h2::after {
+            content: '';
+            display: block;
+            width: 60px;
+            height: 4px;
+            background: var(--primary-color);
+            margin: 10px auto 0;
+        }
+        
+        /* Specific override for h2 alignment on this page */
+        #overview h2::after, #differentiators h2::after {
+             margin-left: 0;
+             margin-right: auto;
+        }
+
+
+        .section-subtitle {
+            font-size: 1.15rem;
+            color: var(--text-gray);
+            max-width: 650px;
+            margin: 1.5rem auto 4rem auto;
+            text-align: center;
+        }
+        
+        /* Adjusted for non-centered subtitles */
+        .left-align-subtitle {
+             margin: 1.5rem 0 4rem 0;
+             text-align: left;
+             max-width: 800px;
+        }
+
+
+        /* Buttons */
+        .btn {
+            display: inline-block;
+            padding: 14px 28px;
+            border-radius: var(--radius);
+            font-weight: 600;
+            cursor: pointer;
+            transition: var(--transition);
+            border: 2px solid transparent;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            font-size: 0.9rem;
+        }
+
+        .btn-primary {
+            background-color: var(--primary-color);
+            color: white;
+            border-color: var(--primary-color);
+        }
+
+        .btn-primary:hover {
+            background-color: var(--primary-dark);
+            border-color: var(--primary-dark);
+            transform: translateY(-2px);
+        }
+
+        .btn-outline {
+            background-color: transparent;
+            border-color: var(--accent-black);
+            color: var(--accent-black);
+        }
+
+        .btn-outline:hover {
+            background-color: var(--accent-black);
+            color: white;
+        }
+
+        /* =========================================
+           HEADER & NAVBAR (Copied from index.html)
+           ========================================= */
+        header {
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            background-color: white;
+            box-shadow: var(--shadow-sm);
+            transition: var(--transition);
+            border-bottom: 1px solid #eee;
+        }
+
+        header.scrolled {
+            padding: 5px 0;
+            box-shadow: var(--shadow-md);
+        }
+
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 90px;
+            transition: height 0.3s;
+        }
+
+        header.scrolled .nav-container {
+            height: 70px;
+        }
+
+        /* Custom Logo Construction */
+        .brand-logo {
+            display: flex;
+            align-items: center;
+        }
+
+        .nav-menu {
+            display: flex;
+            gap: 30px;
+        }
+
+        .nav-link {
+            font-weight: 600;
+            color: var(--text-dark);
+            position: relative;
+            font-size: 0.95rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .nav-link:hover {
+            color: var(--primary-color);
+        }
+
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -4px;
+            left: 0;
+            background-color: var(--primary-color);
+            transition: width 0.3s;
+        }
+
+        .nav-link:hover::after, .nav-link.active::after {
+            width: 100%;
+        }
+        
+        .nav-link.active {
+            color: var(--primary-color);
+        }
+
+        .hamburger {
+            display: none;
+            cursor: pointer;
+            color: var(--accent-black);
+        }
+
+        /* =========================================
+           PAGE SPECIFIC LAYOUTS
+           ========================================= */
+        
+        .hero-page {
+            background-color: var(--bg-light);
+            padding: 100px 0 60px;
+            text-align: center;
+            border-bottom: 3px solid var(--primary-color);
+        }
+        .hero-page h1 {
+            font-size: 3.5rem;
+            color: var(--primary-color);
+            margin-bottom: 10px;
+        }
+        .hero-page p {
+            font-size: 1.25rem;
+            color: var(--text-gray);
+        }
+        
+        .overview-grid {
+            display: grid;
+            grid-template-columns: 1.5fr 1fr;
+            gap: 60px;
+            align-items: center;
+            padding-bottom: 60px;
+        }
+        
+        .differentiator-list {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+            margin-top: 40px;
+        }
+        
+        .diff-item {
+            background: white;
+            padding: 30px;
+            border-left: 4px solid var(--primary-color);
+            box-shadow: var(--shadow-sm);
+            border-radius: var(--radius);
+            transition: var(--transition);
+        }
+        
+        .diff-item:hover {
+            box-shadow: var(--shadow-md);
+            transform: translateY(-5px);
+        }
+        
+        .diff-item h4 {
+            font-size: 1.25rem;
+            margin-bottom: 10px;
+        }
+        
+        .core-team-roles {
+             display: flex;
+             justify-content: space-around;
+             gap: 30px;
+             margin-top: 40px;
+             text-align: center;
+        }
+        
+        .role-card {
+            padding: 20px;
+            border: 1px solid #ddd;
+            border-radius: var(--radius);
+            flex-basis: 30%;
+            transition: var(--transition);
+        }
+        
+        .role-card:hover {
+             border-color: var(--accent-black);
+             background-color: #fafafa;
+        }
+        
+        .role-card svg {
+            color: var(--primary-color);
+            width: 40px;
+            height: 40px;
+            margin-bottom: 15px;
+        }
+
+
+        /* Footer (Copied from index.html) */
+        .contact-info-box {
+            background: #111;
+            color: white;
+            padding: 50px;
+            border-radius: var(--radius);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .contact-info-box::after {
+            content: '';
+            position: absolute;
+            top: -50px;
+            right: -50px;
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            border: 20px solid var(--primary-color);
+            opacity: 0.2;
+        }
+
+        footer {
+            background-color: #000;
+            color: white;
+            padding: 80px 0 30px;
+            border-top: 5px solid var(--primary-color);
+        }
+
+        .footer h3 {
+            color: white;
+            font-size: 1.2rem;
+            margin-bottom: 25px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        
+        .footer-links a {
+            color: #999;
+            transition: color 0.3s;
+            display: inline-block;
+            margin-bottom: 8px;
+        }
+
+        .footer-links a:hover {
+            color: var(--primary-color);
+            padding-left: 5px;
+        }
+        
+        .social-icon {
+            display: inline-flex;
+            width: 40px;
+            height: 40px;
+            background: #222;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            color: white;
+            margin-right: 10px;
+            transition: 0.3s;
+        }
+        
+        .social-icon:hover {
+            background: var(--primary-color);
+        }
+        
+        .footer-grid { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 40px; margin-bottom: 40px; }
+        
+        /* Modals and Notifications are included but hidden since no JS logic is copied */
+        .modal, #notification-box { display: none; }
+
+
+        /* =========================================
+           RESPONSIVE (Copied and adapted from index.html)
+           ========================================= */
+        @media (max-width: 992px) {
+            .overview-grid { grid-template-columns: 1fr; }
+            .differentiator-list { grid-template-columns: repeat(2, 1fr); }
+            .core-team-roles { flex-direction: column; }
+            .footer-grid { grid-template-columns: 1fr 1fr; }
+        }
+
+        @media (max-width: 768px) {
+            .hamburger { display: block; }
+            .nav-menu {
+                position: fixed;
+                top: 90px;
+                left: -100%;
+                width: 100%;
+                height: calc(100vh - 90px);
+                background: white;
+                flex-direction: column;
+                align-items: center;
+                padding-top: 40px;
+                transition: left 0.3s;
+                border-top: 1px solid #eee;
+            }
+            .nav-menu.active { left: 0; }
+            h1 { font-size: 2.5rem; }
+            .differentiator-list { grid-template-columns: 1fr; }
+        }
+
+        /* Animation Utility */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+        }
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+    </style>
+</head>
+<body>
+
+    <!-- ==================== HEADER ==================== -->
+    <header id="header">
+        <div class="container nav-container">
+            <!-- LOGO: Recreated with SVG to match requested Image (Culture Black, Arc Red, Stylized A) -->
+            <a href="index.html" class="brand-logo">
+                <svg width="180" height="40" viewBox="0 0 180 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <!-- 'Culture' in Black -->
+                    <text x="0" y="30" font-family="Arial, sans-serif" font-size="32" font-weight="400" fill="#000000">Culture</text>
+                    
+                    <!-- Stylized 'A' -->
+                    <g transform="translate(108, 0)">
+                        <!-- The A Legs -->
+                        <path d="M12 30 L22 4 L32 30" stroke="#D32F2F" stroke-width="3" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+                        <!-- The Orbit/Ring -->
+                        <ellipse cx="22" cy="20" rx="16" ry="4" stroke="#D32F2F" stroke-width="2" fill="none" transform="rotate(-5 22 20)"/>
+                    </g>
+                    
+                    <!-- 'rc' in Red -->
+                    <text x="142" y="30" font-family="Arial, sans-serif" font-size="32" font-weight="400" fill="#D32F2F">rc</text>
+                </svg>
+            </a>
+            
+            <nav>
+                <!-- Navigation links point to planned pages or internal anchors -->
+                <ul class="nav-menu" id="nav-menu">
+                    <li><a href="index.html" class="nav-link">Home</a></li>
+                    <li><a href="Aboutus.html" class="nav-link active">About</a></li>
+                    <li><a href="services.html" class="nav-link">Services</a></li>
+                    <li><a href="portfolio.html" class="nav-link">Portfolio</a></li>
+                    <li><a href="job.html" class="nav-link">Jobs</a></li>
+                    <li><a href="contact.html" class="nav-link">Contact</a></li>
+                    <li><a href="index.html" class="btn btn-primary">Hire Talent</a></li>
+                </ul>
+            </nav>
+            
+            <div class="hamburger" id="hamburger">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <line x1="3" y1="12" x2="21" y2="12"></line>
+                    <line x1="3" y1="6" x2="21" y2="6"></line>
+                    <line x1="3" y1="18" x2="21" y2="18"></line>
+                </svg>
+            </div>
+        </div>
+    </header>
+
+    <!-- ==================== PAGE HERO ==================== -->
+    <section class="hero-page">
+        <div class="container">
+            <h1 class="fade-in">About CultureArc</h1>
+            <p class="fade-in">Driving digital transformation with elite talent and cutting-edge solutions.</p>
+        </div>
+    </section>
+
+    <!-- ==================== COMPANY OVERVIEW ==================== -->
+    <section id="overview" class="section-padding">
+        <div class="container">
+            <div class="overview-grid">
+                <div class="fade-in">
+                    <h2>Our Vision & Mission</h2>
+                    <p class="left-align-subtitle">CultureArc is a premier IT Services and Business consulting firm dedicated to providing innovative technology solutions and fostering high-performance work cultures globally.</p>
+
+                    <p style="margin-bottom: 20px;">We specialize in process design, product innovation, and nurturing culture value systems that translate directly into highly efficient teams for our clients. Our approach ensures scalability and competitive advantage in the rapidly evolving digital economy.</p>
+                    
+                    <p style="color: var(--text-dark); font-weight: 600;">As a consortium of 25+ IT MNCs, we bring enterprise-level resources with the agility of a startup to every engagement.</p>
+                    
+                    <a href="contact.html" class="btn btn-primary" style="margin-top: 30px;">Partner With Us &rarr;</a>
+                </div>
+                
+                <!-- Placeholder Image/Graphic -->
+                <div class="fade-in">
+                    <img src="https://placehold.co/500x350/D32F2F/ffffff?text=CultureArc+Vision" alt="CultureArc Vision Graphic" style="width: 100%; border-radius: var(--radius); box-shadow: var(--shadow-lg);">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== CORE TEAM & ROLES ==================== -->
+    <section id="team" class="section-padding bg-light">
+        <div class="container">
+            <div class="text-center">
+                <h2>Our Core Team</h2>
+                <p class="section-subtitle">We are powered by a team of highly specialized experts across all major domains.</p>
+            </div>
+            
+            <div class="core-team-roles">
+                <div class="role-card fade-in">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2v20M17 5H7l-5 5 5 5h10l5-5-5-5z"></path></svg>
+                    <h4>Business Analysts</h4>
+                    <p style="font-size: 0.95rem; color: var(--text-gray);">Defining success metrics and bridging the gap between business goals and technology implementation.</p>
+                </div>
+                <div class="role-card fade-in">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect><line x1="3" y1="9" x2="21" y2="9"></line><line x1="9" y1="21" x2="9" y2="9"></line></svg>
+                    <h4>Solution Providers</h4>
+                    <p style="font-size: 0.95rem; color: var(--text-gray);">Designing robust, scalable, and cost-effective enterprise architecture solutions.</p>
+                </div>
+                <div class="role-card fade-in">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg>
+                    <h4>Technology Specialists</h4>
+                    <p style="font-size: 0.95rem; color: var(--text-gray);">Hands-on experts in cutting-edge technologies from Cloud to AI/ML development.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- ==================== OUR DIFFERENTIATORS ==================== -->
+    <section id="differentiators" class="section-padding">
+        <div class="container">
+            <h2 class="text-center">Our Key Differentiators</h2>
+            <p class="section-subtitle">What sets CultureArc apart as your preferred IT and talent partner.</p>
+            
+            <div class="differentiator-list">
+                <!-- Differentiator 1 -->
+                <div class="diff-item fade-in">
+                    <h4 class="text-primary">Proven Track Record & Retention</h4>
+                    <p style="font-size: 0.95rem; color: var(--text-gray);">We boast 100% client retention, reflecting our commitment to quality delivery and long-term partnership success.</p>
+                </div>
+                <!-- Differentiator 2 -->
+                <div class="diff-item fade-in">
+                    <h4 class="text-primary">Attracting Elite Talent</h4>
+                    <p style="font-size: 0.95rem; color: var(--text-gray);">Our network and reputation enable us to attract the best talent, specializing in niche and high-demand skills.</p>
+                </div>
+                <!-- Differentiator 3 -->
+                <div class="diff-item fade-in">
+                    <h4 class="text-primary">Wide Spectrum of IT Skills</h4>
+                    <p style="font-size: 0.95rem; color: var(--text-gray);">From legacy systems (SAP/Java/.NET) to future tech (IoT/AI/ML), we cover the entire technological landscape.</p>
+                </div>
+                <!-- Differentiator 4 -->
+                <div class="diff-item fade-in">
+                    <h4 class="text-primary">Agile Approach & Flexibility</h4>
+                    <p style="font-size: 0.95rem; color: var(--text-gray);">An adaptive engagement model ensures we align perfectly with your project timelines and evolving business needs.</p>
+                </div>
+                <!-- Differentiator 5 -->
+                <div class="diff-item fade-in">
+                    <h4 class="text-primary">Robust Infrastructure</h4>
+                    <p style="font-size: 0.95rem; color: var(--text-gray);">Leverage our established offshore development centers, tools, and best-in-class processes for seamless operations.</p>
+                </div>
+                <!-- Differentiator 6 -->
+                <div class="diff-item fade-in">
+                    <h4 class="text-primary">Culture Value System</h4>
+                    <p style="font-size: 0.95rem; color: var(--text-gray);">We innovate on culture, fostering high-productive environments that reduce burnout and increase long-term team performance.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- ==================== FOOTER (Copied from index.html) ==================== -->
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div>
+                    <h3>CultureArc</h3>
+                    <p style="color: #999; margin-bottom: 25px; font-size: 0.95rem;">Innovative Technology solutions to manage business in the new era of digital economy. Creating high productive teams and work culture across the globe.</p>
+                </div>
+                
+                <div>
+                    <h3>Quick Links</h3>
+                    <ul class="footer-links">
+                        <li><a href="Aboutus.html">About Us</a></li>
+                        <li><a href="job.html">Careers</a></li>
+                        <li><a href="services.html">Services</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h3>Services</h3>
+                    <ul class="footer-links">
+                        <li><a href="services.html#staffing">IT Staffing</a></li>
+                        <li><a href="services.html#web">Web Development</a></li>
+                        <li><a href="services.html#cloud">Cloud Solutions</a></li>
+                        <li><a href="services.html#data">Data Analytics</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h3>Connect</h3>
+                    <div style="display: flex; margin-bottom: 20px;">
+                        <a href="#" class="social-icon">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path><rect x="2" y="9" width="4" height="12"></rect><circle cx="4" cy="4" r="2"></circle></svg>
+                        </a>
+                        <a href="#" class="social-icon">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path></svg>
+                        </a>
+                        <a href="#" class="social-icon">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"></path></svg>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            
+            <div style="border-top: 1px solid #222; padding-top: 20px; text-align: center; color: #666; font-size: 0.85rem;">
+                &copy; 2025 CultureArc. All Rights Reserved. | MSME: UDYAM-MH-26-0170565
+            </div>
+        </div>
+    </footer>
+
+    <!-- Modals and Notifications are stripped since they require JS not included here -->
+    
+    <!-- ==================== JAVASCRIPT ==================== -->
+    <script>
+        // --- DOM Elements ---
+        const navMenu = document.getElementById('nav-menu');
+        const hamburger = document.getElementById('hamburger');
+        const fadeElements = document.querySelectorAll('.fade-in');
+
+        // --- Init ---
+        document.addEventListener('DOMContentLoaded', () => {
+            setupIntersectionObserver();
+        });
+
+        // --- Navigation ---
+        hamburger.addEventListener('click', () => {
+            navMenu.classList.toggle('active');
+        });
+
+        // --- Intersection Observer for Animations (Adapted from index.html) ---
+        function setupIntersectionObserver() {
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                    }
+                });
+            }, { threshold: 0.1 });
+
+            fadeElements.forEach(el => observer.observe(el));
+        }
+    </script>
+</body>
+</html>
